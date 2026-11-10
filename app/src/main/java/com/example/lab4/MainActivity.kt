@@ -33,8 +33,14 @@ class MainActivity : AppCompatActivity() {
         rcv.layoutManager = LinearLayoutManager(this)
         rcv.adapter = adapter
         bt_add.setOnClickListener {
-            var intent= Intent(this,MainActivity2::class.java)
+            val intent= Intent(this,MainActivity2::class.java)
             startActivity(intent)
         }
+    }
+
+    override fun onRestart() {
+
+        super.onRestart()
+        adapter.notifyDataSetChanged();
     }
 }
